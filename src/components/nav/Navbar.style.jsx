@@ -18,7 +18,14 @@ export const Brand = styled(Link)`
     color: ${({ theme }) => theme.colors.mainColor};
   }
 `;
-export const Menu = styled(Flex)``;
+export const Menu = styled(Flex)`
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    flex-direction: column;
+    width: 100%;
+    max-height: ${({ isOpen }) => (isOpen ? "400px" : "0")};
+    overflow: hidden;
+  }
+`;
 export const MenuLink = styled(Link)`
   text-align: center;
   padding: 1rem 2rem;
@@ -29,6 +36,10 @@ export const MenuLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors.mainColor};
     font-weight: bold;
+  }
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    border-bottom: 2px solid ${({ theme }) => theme.colors.mainColor};
+    width: 100%;
   }
 `;
 
