@@ -4,5 +4,8 @@ const theme = {
     mainColor: "#00ADB5",
     logoColor: "#393E46",
   },
+  screens: {
+    lg: "902px",
+  },
 };
 export default theme;
