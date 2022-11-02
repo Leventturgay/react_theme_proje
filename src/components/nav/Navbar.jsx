@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Nav, Brand } from "./Navbar.style";
+import Nav, { Menu, Brand, MenuLink, Hamburger } from "./Navbar.style";
 import "./Navbar.style";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   return (
@@ -10,12 +10,16 @@ const Navbar = () => {
         <i> {"<TURGAY LEVENT/>"} </i>
         <span>Yemek</span>
       </Brand>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/Logout">Logout</Link>
-      </div>
+      <Hamburger>
+        <GiHamburgerMenu />
+      </Hamburger>
+
+      <Menu>
+        <MenuLink to="/">Home</MenuLink>
+        <MenuLink to="/about">About</MenuLink>
+        <MenuLink to="/register">Register</MenuLink>
+        <MenuLink to="/Logout">Logout</MenuLink>
+      </Menu>
     </Nav>
   );
 };
