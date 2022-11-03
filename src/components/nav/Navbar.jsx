@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav, { Menu, Brand, MenuLink, Hamburger } from "./Navbar.style";
 import "./Navbar.style";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -16,7 +16,7 @@ const Navbar = () => {
         <GiHamburgerMenu />
       </Hamburger>
 
-      <Menu>
+      <Menu isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="/about">About</MenuLink>
         <MenuLink to="/register">Register</MenuLink>
