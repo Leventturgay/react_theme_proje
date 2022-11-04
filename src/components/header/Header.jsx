@@ -20,10 +20,10 @@ const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
       <FormContainer>
         <FoodInput
           type="text"
-          placeholder="ÜRÜN"
+          placeholder="SEARCH"
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button type="submit">ARAMA</Button>
+        <Button type="submit">SEARCH</Button>
         <Select
           name="mealType"
           id="mealType"

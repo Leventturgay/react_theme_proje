@@ -40,9 +40,7 @@ const Home = () => {
           <HomeImg src={homeSvg} />
         </ImgDiv>
       )}
-      {recipes?.length === 0 && (
-        <HeaderText>Yemek Tarifi Bulunamadı</HeaderText>
-      )}
+      {recipes?.length === 0 && <HeaderText>Can't faund</HeaderText>}
       {recipes?.length > 0 && <Cards recipes={recipes} />}
     </div>
   );
