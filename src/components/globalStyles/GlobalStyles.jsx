@@ -10,4 +10,5 @@ font-family: "Girassol", cursive;
 }
 body{
 font-size: 1.5rem;
+background: ${({ theme }) => theme.colors.mainColor};
 }`;
