@@ -1,11 +1,29 @@
-import React from 'react'
+import React from "react";
+import { Card, Button, Header, Image, MainContainer } from "./Cards.style";
+import defaultImage from "../../assets/default-image.jpg";
+import { useNavigate } from "react-router-dom";
 
-const Cards = () => {
+const Cards = ({ recipes }) => {
+  const navigate = useNavigate();
   return (
-    <div>
-      Cards
-    </div>
-  )
-}
+    <MainContainer wrap="wrap">
+      {recipes.map(({ recipe }, index) => {
+        return (
+          <Card key={index}>
+            <Header>{recipe.label}</Header>
+            <Image src={recipe.image || defaultImage} />
+            <Button
+              onClick={() =>
+                navigate("detail", { state: recipe, replace: false })
+              }
+            >
+              Detaylar
+            </Button>
+          </Card>
+        );
+      })}
+    </MainContainer>
+  );
+};
 
-export default Cards
+export default Cards;
