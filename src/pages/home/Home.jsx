@@ -1,7 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../../components/header/Header";
-
+import Cards from "../../components/cards/Cards";
+import { HomeImg, ImgDiv } from "./Home.style";
+import homeSvg from "../../assets/home.svg";
 const Home = () => {
   const APP_ID = "08b57ada";
   const APP_KEY = "7b4e1fdc3a5b6e96ec44799ee82ce85c";
@@ -12,13 +14,19 @@ const Home = () => {
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
   const getData = async () => {
-    const { data } = await axios(url);
-    setRecipes(data.hits);
+    if (query) {
+      try {
+        const { data } = await axios(url);
+        setRecipes(data.hits);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Formu Doldurun");
+    }
   };
-  console.log(setRecipes);
-  useEffect(() => {
-    getData();
-  }, []);
+  console.log(recipes);
+
   return (
     <div>
       <Header
@@ -27,6 +35,13 @@ const Home = () => {
         mealType={mealType}
         getData={getData}
       />
+      {!recipes && (
+        <ImgDiv>
+          <HomeImg src={homeSvg} />
+        </ImgDiv>
+      )}
+
+      <Cards />
     </div>
   );
 };
