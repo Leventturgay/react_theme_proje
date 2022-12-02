@@ -1,17 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.style";
-import Nav, { Brand, Menu } from "./Navbar.style";
-import MenuLink from "./Navbar.style";
+import Nav, { Brand, Menu, MenuLink, Hamburger } from "./Navbar.style";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Nav justify="space-between" wrap="wrap">
       <Brand to="/">
         <i>Turgay LEVENT </i>
         <span>/ Recipe</span>
       </Brand>
-      <Menu>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <GiHamburgerMenu />
+      </Hamburger>
+      <Menu isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="about">About</MenuLink>
         <MenuLink to="register">Register</MenuLink>
