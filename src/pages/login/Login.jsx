@@ -9,8 +9,8 @@ import {
   StyledInput,
 } from "./Login.style";
 import { useNavigate } from "react-router-dom";
-
 import meal from "../../assets/meal.svg";
+
 const Login = () => {
   const navigate = useNavigate();
 
